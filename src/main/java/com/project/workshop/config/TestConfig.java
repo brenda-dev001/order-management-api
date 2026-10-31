@@ -3,14 +3,12 @@ package com.project.workshop.config;
 import com.project.workshop.entities.*;
 import com.project.workshop.entities.enums.OrderStatus;
 import com.project.workshop.repositories.*;
-import org.hibernate.annotations.Array;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 @Configuration
@@ -72,6 +70,10 @@ public class TestConfig implements CommandLineRunner {
         OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
 
         orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3));
+
+        o1.setPayment(new Payment(null, Instant.now(), o1));
+
+        orderRepository.save(o1);
 
     }
 }
