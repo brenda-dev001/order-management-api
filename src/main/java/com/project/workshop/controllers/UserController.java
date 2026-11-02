@@ -26,9 +26,8 @@ public class UserController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> findById(@PathVariable Long id){
-        Optional<User> obj = service.findById(id);
-        return  obj.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        User obj = service.findById(id);
+        return  ResponseEntity.ok(obj);
     }
 
     @PostMapping
