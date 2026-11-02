@@ -2,6 +2,7 @@ package com.project.workshop.services;
 
 import com.project.workshop.entities.User;
 import com.project.workshop.repositories.UserRepository;
+import com.project.workshop.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,9 @@ public class UserService {
         return repository.findAll();
     }
 
-    public Optional<User> findById(Long id){
-        return repository.findById(id);
+    public User findById(Long id){
+        Optional<User> obj = repository.findById(id);
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public User insert(User user){
