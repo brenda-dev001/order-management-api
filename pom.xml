@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.project</groupId>
-	<artifactId>workshop</artifactId>
+	<artifactId>order-management-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
+	<name>Order Management API</name>
+	<description>REST API for order management using Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>
